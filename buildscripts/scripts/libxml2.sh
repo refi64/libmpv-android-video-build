@@ -12,14 +12,14 @@ else
 	exit 255
 fi
 
-[ -f configure ] || ./autogen.sh
+[ -f configure ] || NOCONFIGURE=1 ./autogen.sh
 
 mkdir -p _build$ndk_suffix
 cd _build$ndk_suffix
 
 ../configure \
     CFLAGS=-fPIC CXXFLAGS=-fPIC \
-	--host=$ndk_triple \
+    --host=$ndk_triple \
     --disable-shared \
     --enable-static \
     --with-minimum \

@@ -7,7 +7,7 @@
 mkdir -p deps && cd deps
 
 # mbedtls
-[ ! -d mbedtls ] && git clone --depth 1 --branch v$v_mbedtls https://github.com/Mbed-TLS/mbedtls.git mbedtls
+[ ! -d mbedtls ] && git clone --depth 1 --branch v$v_mbedtls --recursive https://github.com/Mbed-TLS/mbedtls.git mbedtls
 
 # dav1d
 [ ! -d dav1d ] && git clone --depth 1 --branch $v_dav1d https://code.videolan.org/videolan/dav1d.git dav1d
@@ -49,8 +49,11 @@ Shaderc sources are provided by the NDK.
 see <ndk>/sources/third_party/shaderc
 HEREDOC
 
+# libplacebo
+[ ! -d libplacebo ] && git clone --depth 1 --branch v$v_libplacebo --recursive https://github.com/haasn/libplacebo.git libplacebo
+
 # mpv
-[ ! -d mpv ] && git clone https://github.com/mpv-player/mpv.git mpv && cd mpv && git reset --hard 78d43740f52db817d98bcf24fb30a76ab6fa13ff && cd ..
+[ ! -d mpv ] && git clone --depth 1 --branch v$v_mpv https://github.com/mpv-player/mpv.git mpv
 
 # fftools_ffi
 [ ! -d fftools_ffi ] && git clone --depth 1 --branch main https://github.com/moffatman/fftools-ffi.git fftools_ffi
